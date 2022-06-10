@@ -26,6 +26,9 @@
 #define pIRED A3             //IR emitter
 #define pChipSelect 10       //chip select pin for SD card
 
+#define pIR 4                //940nm LED
+#define pBlue 9              //465nm LED
+
 //communications vars
 const int MAX_CHAR = 60;            //max num character in messages
 char messageBuffer[MAX_CHAR];       //buffer for sending and receiving comms
@@ -52,6 +55,8 @@ void setup() {
   Serial.begin(115200);
   Serial.setTimeout(50);
   Wire.begin();
+
+  
   
   //initialize the ADC
   ads.setGain(GAIN_ONE); //reset gain
@@ -90,6 +95,7 @@ void loop() {
   ~~ Vestigial relevant code to model new code by ~~
   */
 
+  
   digitalWrite(pVoltageDivider,HIGH);
 
   millisTime = millis();
